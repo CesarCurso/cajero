@@ -44,8 +44,15 @@ public class cuenta {
        System.out.println("3 Retirar dinero");
        System.out.println("4 Transferir dinero");
        System.out.println("5 Salir del menu");
-       String dato= entra.nextLine();
-             
+       //int dato= entra.nextInt();
+        int daton=0;
+     do {
+         System.out.println("Ingrese solo numeros del 1 al 5");
+         daton= entra.nextInt();
+       }while(1>daton || daton>5);
+       
+       String dato= String.valueOf(daton);
+       
        switch(dato){
           case "1" :
                     //System.out.println("eligio saber el saldo uno");
@@ -64,8 +71,9 @@ public class cuenta {
                    System.out.println("Ingrese el monto a retirar:");
                    Scanner reti= new Scanner(System.in);
                    int retira= reti.nextInt();
-                   cuero.retira(retira);
-                   System.out.println(cuero.dicesaldo());
+                   //cuero.retira(retira);
+                   System.out.println(cuero.retira(retira));
+                   //System.out.println(cuero.dicesaldo());
                    cuenta.menu();
                    break; // break es opcional
         case "4" :
@@ -76,7 +84,7 @@ public class cuenta {
                       
                       
                    if(   cuero.tansferencia(trafe)){;
-                      cuero2.tranfeentra(trafe);
+                      
                       System.out.println("Se tranfirieron: "+trafe);
                       System.out.println(cuero.dicesaldo());
                    
@@ -84,7 +92,7 @@ public class cuenta {
                   }else if(cuentacomp.equals("0200")){
                      
                       if(   cuero.tansferencia(trafe)){;
-                      cuero2.tranfeentra(trafe);
+                      
                       System.out.println("Se tranfirieron: "+trafe);
                       System.out.println(cuero.dicesaldo());
                       } else{ System.out.println("La transferencia supera los fondos Cancelada");}
